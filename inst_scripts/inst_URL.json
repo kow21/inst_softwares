@@ -1,3 +1,5 @@
 {
-    "rpi_imager" : "https://downloads.raspberrypi.org/imager/imager_latest.exe"
+    "raspberry_imager" : "https://downloads.raspberrypi.org/imager/imager_latest.exe",
+    "steam" : "https://cdn.cloudflare.steamstatic.com/client/installer/SteamSetup.exe",
+    "win11_media_maker" : "https://go.microsoft.com/fwlink/?linkid=2156295"
 }

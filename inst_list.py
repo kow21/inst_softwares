@@ -6,6 +6,12 @@ import urllib.request
 import os
 
 class MyApp(tk.Tk):
+    # json読み込み
+    json_open = open("./inst_scripts/inst_URL.json","r")
+    json_datas = json.load(json_open)
+
+
+    
     def __init__(self):
         super().__init__()
         self.title("My App")
@@ -18,6 +24,7 @@ class MyApp(tk.Tk):
         self.listBox.pack(fill=tk.BOTH, expand=True)
 
         # リストボックスに要素を追加
+
         self.listBox.insert(tk.END, "Raspberry Pi Imager")
         self.listBox.insert(tk.END, "Item 2")
         self.listBox.insert(tk.END, "Item 3")
@@ -30,6 +37,7 @@ class MyApp(tk.Tk):
         index = self.listBox.curselection()[0]
 
         # 選択された要素に応じたスクリプトを実行
+        # self.install_data()
         if index == 0:
             # subprocess.call(["python", "./inst_scripts/script1.py", "rpi_imager"])
             self.install_data("rpi_imager")
@@ -39,12 +47,9 @@ class MyApp(tk.Tk):
             subprocess.call(["python", "./inst_scripts/script3.py"])
             
     def install_data(self, inst_soft):
-        # json読み込み
-        json_open = open("./inst_scripts/inst_URL.json","r")
-        json_urls = json.load(json_open)
 
         # URL取得
-        URL = json_urls[inst_soft]
+        URL = self.json_datas[inst_soft]
 
 
         # ファイルパス取得
