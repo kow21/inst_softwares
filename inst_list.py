@@ -1,5 +1,9 @@
 import tkinter as tk
 import subprocess
+import json
+from pathlib import Path
+import urllib.request
+import os
 
 class MyApp(tk.Tk):
     def __init__(self):
@@ -27,11 +31,33 @@ class MyApp(tk.Tk):
 
         # 選択された要素に応じたスクリプトを実行
         if index == 0:
-            subprocess.call(["python", "./inst_scripts/script1.py"])
+            # subprocess.call(["python", "./inst_scripts/script1.py", "rpi_imager"])
+            self.install_data("rpi_imager")
         elif index == 1:
             subprocess.call(["python", "./inst_scripts/script2.py"])
         elif index == 2:
             subprocess.call(["python", "./inst_scripts/script3.py"])
+            
+    def install_data(self, inst_soft):
+        # json読み込み
+        json_open = open("./inst_scripts/inst_URL.json","r")
+        json_urls = json.load(json_open)
+
+        # URL取得
+        URL = json_urls[inst_soft]
+
+
+        # ファイルパス取得
+        dl_name = URL.split("/")[-1]
+        current_path = Path().cwd()
+        # print(current_path.resolve())
+        # print(dl_name)
+
+        # ファイルのDL、実行
+        if not Path(current_path.joinpath(dl_name)).exists():
+            urllib.request.urlretrieve(URL, dl_name)
+        # subprocess.run( repr(current_path.joinpath(dl_name)) ,capture_output=True, shell=True)
+        subprocess.run(dl_name, shell=True)
 
 if __name__ == "__main__":
     app = MyApp()
