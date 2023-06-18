@@ -1,5 +1,9 @@
 {
     "raspberry_imager" : "https://downloads.raspberrypi.org/imager/imager_latest.exe",
     "steam" : "https://cdn.cloudflare.steamstatic.com/client/installer/SteamSetup.exe",
-    "win11_media_maker" : "https://go.microsoft.com/fwlink/?linkid=2156295"
+    "win11_media_maker" : "https://go.microsoft.com/fwlink/?linkid=2156295",
+    "Chrome" : "https://www.google.com/intl/ja_jp/chrome/thank-you.html?statcb=0&installdataindex=empty&defaultbrowser=0#",
+    "DeepL" : "https://appdownload.deepl.com/windows/0install/DeepLSetup.exe",
+    "Docker Desktop" : "https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe",
+    "Visual Studio Code" : "https://code.visualstudio.com/sha/download?&os=win32-x64-user"
 }
